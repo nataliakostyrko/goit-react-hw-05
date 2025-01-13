@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Form, Formik, Field } from "formik";
 import toast, { Toaster } from "react-hot-toast";
-import { fetchMovieByQuery } from "../../services/getMovies";
+import { fetchMovieQuery } from "../../services/getMovies";
 import MovieList from "../../components/MovieList/MovieList";
 import s from "./MoviesPage.module.css";
 
@@ -19,7 +19,7 @@ const MoviesPage = () => {
     const movieByQuery = async () => {
       try {
         setIsLoading(true);
-        const getMovieByQuery = await fetchMovieByQuery(currentQuery);
+        const getMovieByQuery = await fetchMovieQuery(currentQuery);
         setMovies(getMovieByQuery);
       } catch (error) {
         setError(`Sorry, some mistake! ${error.message}`);

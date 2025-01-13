@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieReviewById } from "../../services/getMovies";
+import { fetchMovieReview } from "../../services/getMovies";
 import s from "./MovieReviews.module.css";
 
 const MovieReviews = () => {
@@ -13,7 +13,7 @@ const MovieReviews = () => {
     const fetchReviews = async () => {
       try {
         setIsLoading(true);
-        const Reviews = await fetchMovieReviewById(movieId);
+        const Reviews = await fetchMovieReview(movieId);
         setReview(Reviews);
       } catch (error) {
         setError(`Sorry, some mistake! ${error.message}`);

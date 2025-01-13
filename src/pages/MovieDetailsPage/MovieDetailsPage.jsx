@@ -6,9 +6,9 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import { fetchMovieById } from "../../services/getMovies";
+import { fetchMovie} from "../../services/getMovies";
 import { BASE_POSTER_URL } from "../../services/getMovies";
-import s from "./MoviesDetailsPage.module.css";
+import s from "./MovieDetailsPage.module.css"
 import clsx from "clsx";
 
 const MovieDetailsPage = () => {
@@ -31,7 +31,7 @@ const MovieDetailsPage = () => {
     const getMovieById = async () => {
       try {
         setIsLoading(true);
-        const movieById = await fetchMovieById(movieId);
+        const movieById = await fetchMovie(movieId);
         setMovie(movieById);
       } catch (error) {
         setError(`Sorry, some mistake! ${error.message}`);

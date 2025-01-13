@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieCastById } from "../../services/getMovies";
+import { fetchMovieCast } from "../../services/getMovies";
 import { BASE_POSTER_URL } from "../../services/getMovies";
-import s from "./MovieCast.module.css";
+import s from "./MovieCast.module.css"
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -14,7 +14,7 @@ const MovieCast = () => {
     const fetchCast = async () => {
       try {
         setIsLoading(true);
-        const cast = await fetchMovieCastById(movieId);
+        const cast = await fetchMovieCast(movieId);
         setCast(cast);
       } catch (error) {
         setError(`Sorry, some mistake! ${error.message}`);
